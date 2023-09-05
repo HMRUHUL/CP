@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
+
 public:
 vector<vector<int>> dfs(int index, int target, vector<int> arr, vector<int> v, vector<vector<int>> &ans){
         if(target == 0){
@@ -11,25 +12,30 @@ vector<vector<int>> dfs(int index, int target, vector<int> arr, vector<int> v, v
             return ans;
         }
         // take
-        v.push_back(arr[index]);
-        dfs(index+1, target-arr[index], arr, v, ans);
-        v.pop_back();
+        if(arr[index]<=target){
+            v.push_back(arr[index]);
+            dfs(index, target-arr[index], arr, v, ans);
+            v.pop_back();
+        }
+      
         // not take
         dfs(index+1, target, arr, v, ans);
+        return ans;
 }
-public:
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+
+vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<int> v;
         vector<vector<int>> ans;
         sort(candidates.begin(),candidates.end());
         dfs(0, target, candidates, v, ans);
         return ans;
+        
     }
 };
 
 int main(){
     Solution s;
-    vector<int> v = {2,3,6,7};
+    vector<int> v = {1,2,3,6,7};
     int t = 7;
     vector<vector<int>> ans = s.combinationSum(v,t);
     for(auto i:ans){

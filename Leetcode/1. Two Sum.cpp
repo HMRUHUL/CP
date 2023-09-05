@@ -39,7 +39,7 @@ int main()
 {
     Solution solution;
     //freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    //freopen("output.txt", "w", stdout);
     vector<int> nums = {1,3, 2, 4};
     int target = 6;
     vector<int> result = solution.twoSum(nums, target);
