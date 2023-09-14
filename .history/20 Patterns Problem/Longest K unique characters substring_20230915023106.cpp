@@ -1,0 +1,17 @@
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution{
+  public:
+    int longestKSubstr(string s, int k) {
+    // your code here
+        int n = s.size();
+        vector<int> dp(n, 1);
+        int ans = 0;
+        for(int i=1; i<n; i++){
+    }
+};
+
+int main(){}
